@@ -86,8 +86,39 @@ public class MainActivity extends AppCompatActivity {
             cns=operand1*operand2;
         else if(operator.equals("/"))
             cns=operand1/operand2;
+        if(correctButton== 0)
+        {
+            button1.setText(cns+" ");
+            button2.setText(cns+1+"");
+            button3.setText(cns-1+"");
+            button4.setText(cns+2+"");
 
-      // Your code here, to diplay correct and incorrect options on the buttons
+        }
+        else  if(correctButton== 1)
+        {
+            button1.setText(cns+1+" ");
+            button2.setText(cns);
+            button3.setText(cns-1+" ");
+            button4.setText(cns+2+" ");
+
+        }
+        else  if(correctButton== 2)
+        {
+            button1.setText(cns+1+" ");
+            button2.setText(cns-1+" ");
+            button3.setText(cns+"");
+            button4.setText(cns+2+"");
+
+        }
+        else  if(correctButton== 3)
+        {
+            button1.setText(cns+2);
+            button2.setText(cns+2+"");
+            button3.setText(cns-1+"");
+            button4.setText(cns+"");
+
+        }
+
 
         if(matchCounter==3){    // if three matches are completed updatee the perfomrance in sharedpreferences
 
@@ -125,6 +156,14 @@ public class MainActivity extends AppCompatActivity {
     public String getInterpretation(int [][]dataFrame,double slope){
        //provide interpretation based on your slope analysis
         // Your code here
+        String Interpretation="default interpretation";
+        if(slope>0 && slope<=0.5)
+            Interpretation="you are a slow learner ";
+        else if(slope>0.5)
+            Interpretation="you are a good learner ";
+        else if (slope<0)
+            Interpretation="you are not a learner ";
+        
         return "Your Interpretation";
     }
 }
