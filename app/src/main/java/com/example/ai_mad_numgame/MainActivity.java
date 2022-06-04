@@ -34,7 +34,15 @@ public class MainActivity extends AppCompatActivity {
     Random random=new Random(); //You will generate randdom alegebra questions
     TextView textView2;
     Button button1,button2,button3,button4;
-   
+    public void load(View view){
+        Button buttonClicked=(Button)view;
+        if(buttonClicked.getTag().toString().equals(correctButton+"")){
+            score[matchCounter++]=1;
+        }else{
+            score[matchCounter++]=0;
+        }
+        newMatch();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
